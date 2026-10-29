@@ -1,6 +1,11 @@
 package cn.modernhistory.auth;
 
 import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RoleRepository extends JpaRepository<RoleEntity, Long> { Optional<RoleEntity> findByCode(Role code); }
+@Repository
+public class RoleRepository {
+    public Optional<RoleEntity> findByCode(Role role) {
+        return Optional.of(new RoleEntity(role));
+    }
+}
